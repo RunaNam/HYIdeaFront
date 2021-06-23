@@ -2,10 +2,9 @@ import React from 'react';
 
 export default ({})=>{
 
-
     return (
         <div>
-            auth
+            Mypage
         </div>
     )
 }
