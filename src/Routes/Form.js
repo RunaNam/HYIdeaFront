@@ -31,6 +31,8 @@ export default ({ }) => {
                 moveRangeOnFirstSelection={false}
                 ranges={state}
                 locale={ko}
+                 months={2}
+                 direction="horizontal"
             />
         </Container>
     )
