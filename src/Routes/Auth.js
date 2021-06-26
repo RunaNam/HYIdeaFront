@@ -3,6 +3,8 @@ import styled from "styled-components";
 import useInput from "../Hooks/useInput";
 import { Link } from "react-router-dom";
 
+import { toast } from "react-toastify";
+
 
 const Container = styled.div`
     width:100%;
@@ -35,11 +37,12 @@ const LText = styled.div`
     cursor: pointer;
 `;
 
-export default ({ }) => {
+export default ({isLoggedIn, setIsLoggedIn }) => {
     const [status, setStatus] = useState("login");
     const email = useInput("");
     const password = useInput("");
     const name = useInput("");
+
     console.log(email);
     console.log(password);
     console.log(name);
@@ -49,7 +52,7 @@ export default ({ }) => {
             {status === "login" ?
                 (
                     <>
-                        <form>
+                        <form onSubmit={()=> {setIsLoggedIn(true); toast("로그인 되었습니다")}}>
                             <Title>로그인</Title>
                             <Content>
                                 <Text>Email Address</Text>
@@ -67,7 +70,7 @@ export default ({ }) => {
                         </LoginDesc>
                     </>
                 ) : (
-                    <form>
+                    <form onSubmit={()=> {toast("회원가입 되었습니다")}}>
                         <Title>회원가입</Title>
                         <Content>
                             <Text>Email Address</Text>

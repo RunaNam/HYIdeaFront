@@ -5,6 +5,8 @@ import styled from "styled-components";
 import Popup from "reactjs-popup";
 import Auth from "../Routes/Auth";
 
+import { toast } from "react-toastify";
+
 const Icon = styled.div`
 
 `;
@@ -35,8 +37,9 @@ const X = styled.div`
 `;
 
 export default () => {
-    var [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
+    console.log(isLoggedIn)
     return (
         <div>
             <Link to="/">
@@ -48,7 +51,7 @@ export default () => {
                         <Link to="/myPage">
                             <Text>마이페이지</Text>
                         </Link>
-                        <Text>로그아웃</Text>
+                        <Text onClick={()=>{setIsLoggedIn(false); toast("로그아웃 되었습니다")}}>로그아웃</Text>
                     </List>
                 ) : (
                     <List>
@@ -62,7 +65,7 @@ export default () => {
                             {close => (
                                 <>
                                     <X onClick={close}>&times; </X>
-                                    <Auth />
+                                    <Auth isLoggedIn ={isLoggedIn} setIsLoggedIn ={setIsLoggedIn}/>
                                 </>
                             )}
 
