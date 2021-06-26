@@ -1,25 +1,35 @@
-import React, { useState } from 'react';
-import { Calendar } from 'react-date-range';
-import 'react-date-range/dist/styles.css'; // main style file
-import 'react-date-range/dist/theme/default.css'; // theme css file
-import { DateRangePicker } from 'react-date-range';
+import React, { useState } from "react";
+import { DayPickerSingleDateController, CalendarDay } from "react-dates";
+// component
 
-function Submit() {
-    const [state, setState] = useState([
-        {
-            startDate: new Date(),
-            endDate: null,
-            key: 'selection',
-            // color: "#9E4040"
+const Submit = () => {
+  const [dates, setDates] = useState([]);
+  const handleChange = date => {
+    const newDates = dates.includes(date)
+      ? dates.filter(d => !date.isSame(d))
+      : [...dates, date];
+
+    setDates(newDates);
+  };
+  return (
+    <DayPickerSingleDateController
+      numberOfMonths={1}
+      onDateChange={handleChange}
+      hideKeyboardShortcutsPanel
+      noBorder
+      monthFormat="YYYY년 MMMM"
+      renderCalendarDay={props => {
+        const { day, modifiers } = props;
+
+        if (dates.includes(day)) {
+          modifiers && modifiers.add("selected");
+        } else {
+          modifiers && modifiers.delete("selected");
         }
-    ]);
-    return (
-        <Calendar
-            editableDateInputs={true}
-            onChange={item => setState([item.selection])}
-            months={2}
-            direction="horizontal"
-        />
-    )
-}
+
+        return <CalendarDay {...props} modifiers={modifiers} />;
+      }}
+    />
+  );
+};
 export default Submit;
