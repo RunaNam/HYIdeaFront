@@ -6,8 +6,8 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
 }
 function Result() {
-    const startDate = new Date(2021, 5, 4);
-    const endDate = new Date(2021, 5, 11);
+    const startDate = new Date(2021, 5, 12);
+    const endDate = new Date(2021, 5, 31);
     const key_value = 0;
     const startDay = startDate.getDay();
     const disableClick = -1;
@@ -39,7 +39,7 @@ function Result() {
     const Days = ['일', '월', '화', '수', '목', '금', '토'];
     const days_row = Days.map(
         (day) => (
-            <span>{day}</span>
+            <button className="day">{day}</button>
         )
     );
     return (
