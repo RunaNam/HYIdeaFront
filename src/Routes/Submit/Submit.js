@@ -1,5 +1,5 @@
 import React from 'react';
-import CalendarRow from './Calendar';
+import Calendar from './Calendar';
 
 function Submit() {
 
@@ -18,7 +18,7 @@ function Submit() {
             <div className="DayRow">
                 {days_row}
             </div>
-            <CalendarRow  key = {key_value} startDate={startDate} endDate={endDate}></CalendarRow>
+            <Calendar  key = {key_value} startDate={startDate} endDate={endDate}></Calendar>
         </div>
     )
 }
