@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import "./Calendar.css";
+import "./ResultCalendar.css";
 
-function CalendarRow({ startDate, endDate }) {
+function ResultCalendar({ startDate, endDate }) {
     const startDay = startDate.getDay();
     const disableClick = -1;
     const ableClick = 0;
@@ -120,4 +120,4 @@ function CalendarRow({ startDate, endDate }) {
     )
 }
 
-export default CalendarRow;
+export default ResultCalendar;

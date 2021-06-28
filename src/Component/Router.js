@@ -6,7 +6,7 @@ import Main from "../Routes/Main";
 import Form from "../Routes/Form";
 import Submit from "../Routes/Submit/Submit";
 import MyPage from "../Routes/MyPage";
-import Result from "../Routes/Result";
+import Result from "../Routes/Result/Result";
 
 export default () => (
     <Router>
