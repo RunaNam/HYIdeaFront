@@ -1,76 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-
-import Popup from "reactjs-popup";
-import Auth from "../Routes/Auth";
-
-const Icon = styled.div`
-
-`;
-
-const List = styled.div`
-`;
-
-const Text = styled.div`
-    cursor:pointer;
-
-`;
-
-const contentStyle = {
-    width: "45%",
-    height: "65%",
-    borderRadius: "15px",
-    padding: "0px",
-};
+import React, {useState} from "react";
 
 
-const X = styled.div`
-  cursor: pointer;
-  position: absolute;
-  right: -0.7em;
-  top: -0.5em;
-  font-size: 2.3em;
-  color: #e5eaee;
-`;
 
-export default () => {
-    var [isLoggedIn, setIsLoggedIn] = useState(false)
-
+export default ()=>{
     return (
         <div>
-            <Link to="/">
-                <Icon>프로젝트명</Icon>
-            </Link>
-            {
-                isLoggedIn ? (
-                    <List>
-                        <Link to="/myPage">
-                            <Text>마이페이지</Text>
-                        </Link>
-                        <Text>로그아웃</Text>
-                    </List>
-                ) : (
-                    <List>
-                        <Popup
-                            trigger={
-                                <Text>로그인/회원가입</Text>
-                            }
-                            modal
-                            contentStyle={contentStyle}
-                            lockScroll={true}>
-                            {close => (
-                                <>
-                                    <X onClick={close}>&times; </X>
-                                    <Auth />
-                                </>
-                            )}
-
-                        </Popup>
-                    </List>
-                )
-            }
-
+            header
         </div>
-    );
+    )
 }
