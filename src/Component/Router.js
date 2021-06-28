@@ -4,8 +4,12 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Main from "../Routes/Main";
 import Form from "../Routes/Form";
+<<<<<<< HEAD
 import Submit from "../Routes/Submit";
 import MyPage from "../Routes/MyPage";
+=======
+import Submit from "../Routes/Submit/Submit";
+>>>>>>> bd65653bbdab68c19450409f2512ee93488277d5
 
 export default () => (
     <Router>
