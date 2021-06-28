@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import Popup from "reactjs-popup";
@@ -7,16 +6,41 @@ import Auth from "../Routes/Auth";
 
 import { toast } from "react-toastify";
 
-const Icon = styled.div`
 
+const Container = styled.div`
+    display:flex;
+    justify-content:space-between;
+    margin: 10px;
+`;
+
+const Logo = styled.a`
+    display:flex;
+`;
+
+const T1 = styled.div`
+    border-bottom: 1px solid  #FF9E1B;
+    padding-bottom: 3px;
+
+`;
+const T2 = styled.div`
+    color: #FF9E1B;
+    border-bottom: 1px solid  #000000;
+    padding-bottom: 3px;
 `;
 
 const List = styled.div`
+    display:flex;
 `;
 
 const Text = styled.div`
     cursor:pointer;
+    color: #FF9E1B;
+    margin-left: 10px;
+`;
 
+const Link = styled.a`
+    color: #FF9E1B;
+    cursor:pointer;
 `;
 
 const contentStyle = {
@@ -37,27 +61,32 @@ const X = styled.div`
 `;
 
 export default () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const isLogin =localStorage.getItem('login')
+    const logout=()=>{
+        toast("로그아웃 되었습니다")
+        localStorage.removeItem('login');
+        window.location.replace("/")
+    }
+    console.log(isLogin)
 
-    console.log(isLoggedIn)
     return (
-        <div>
-            <Link to="/">
-                <Icon>프로젝트명</Icon>
-            </Link>
+        <Container>
+            <Logo href ="/">
+                <T1>When</T1>
+                <T2>When</T2>
+                
+            </Logo>
             {
-                isLoggedIn ? (
+                isLogin ? (
                     <List>
-                        <Link to="/myPage">
-                            <Text>마이페이지</Text>
-                        </Link>
-                        <Text onClick={()=>{setIsLoggedIn(false); toast("로그아웃 되었습니다")}}>로그아웃</Text>
+                        <Link href="/#/myPage">마이페이지</Link>
+                        <Text onClick={()=>{logout()}}>로그아웃</Text>
                     </List>
                 ) : (
                     <List>
                         <Popup
                             trigger={
-                                <Text>로그인/회원가입</Text>
+                                <Text>login</Text>
                             }
                             modal
                             contentStyle={contentStyle}
@@ -65,7 +94,7 @@ export default () => {
                             {close => (
                                 <>
                                     <X onClick={close}>&times; </X>
-                                    <Auth isLoggedIn ={isLoggedIn} setIsLoggedIn ={setIsLoggedIn}/>
+                                    <Auth />
                                 </>
                             )}
 
@@ -74,6 +103,6 @@ export default () => {
                 )
             }
 
-        </div>
+        </Container>
     );
 }

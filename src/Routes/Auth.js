@@ -37,22 +37,23 @@ const LText = styled.div`
     cursor: pointer;
 `;
 
-export default ({isLoggedIn, setIsLoggedIn }) => {
+export default ({}) => {
     const [status, setStatus] = useState("login");
     const email = useInput("");
     const password = useInput("");
     const name = useInput("");
-
-    console.log(email);
-    console.log(password);
-    console.log(name);
+    
+    const login=()=>{
+        toast("로그인 되었습니다")
+        localStorage.setItem('login', true);
+    }
 
     return (
         <Container>
             {status === "login" ?
                 (
                     <>
-                        <form onSubmit={()=> {setIsLoggedIn(true); toast("로그인 되었습니다")}}>
+                        <form onSubmit={()=> {login()}}>
                             <Title>로그인</Title>
                             <Content>
                                 <Text>Email Address</Text>
