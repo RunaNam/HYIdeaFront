@@ -16,9 +16,6 @@ const FormContainer = styled.div`
 
 `;
 
-const Calendar = styled.div`
-
-`;
 
 const Forms = styled.div`
 
@@ -35,6 +32,7 @@ export default ({})=>{
             startDate: new Date(),
             endDate: new Date(),
             key: 'selection',
+            // autoFocus: false
             // color: "#9E4040"
         }
     ]);
@@ -57,18 +55,31 @@ export default ({})=>{
                     ranges={state}
                     locale={ko}
                     direction="horizontal"
+                    showSelectionPreview ={false}
                 />
+                
                 <Forms>
                     <Form onClick = {()=>{setState(
-                    [{
-                                startDate: new Date(2021, 7, 10),
+                        [{
+                            startDate: new Date(2021, 7, 10),
                             endDate: new Date(2021, 7, 12),
-                                key: 'selection',
-                                // color: "#9E4040"
-                            }]
+                            key: 'selection',
+                        }]
                     )}}> 폼 </Form>
-                    <Form> 폼 </Form>
-                    <Form> 폼 </Form>
+                    <Form onClick = {()=>{setState(
+                        [{
+                            startDate: new Date(2021, 5, 10),
+                            endDate: new Date(2021, 5, 12),
+                            key: 'selection',
+                        }]
+                    )}}> 폼 </Form>
+                    <Form onClick = {()=>{setState(
+                        [{
+                            startDate: new Date(2021, 6, 10),
+                            endDate: new Date(2021, 6, 12),
+                            key: 'selection',
+                        }]
+                    )}}> 폼 </Form>
                 </Forms>
 
             </FormContainer>
