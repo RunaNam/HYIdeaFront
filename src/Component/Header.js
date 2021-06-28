@@ -10,21 +10,23 @@ import { toast } from "react-toastify";
 const Container = styled.div`
     display:flex;
     justify-content:space-between;
-    margin: 10px;
+    padding: 15px 30px;
 `;
 
 const Logo = styled.a`
     display:flex;
+    font-size:1.2rem;
+    font-weight:bold;
 `;
 
 const T1 = styled.div`
-    border-bottom: 1px solid  #FF9E1B;
+    border-bottom: 2px solid  #FF9E1B;
     padding-bottom: 3px;
 
 `;
 const T2 = styled.div`
     color: #FF9E1B;
-    border-bottom: 1px solid  #000000;
+    border-bottom: 2px solid  #000000;
     padding-bottom: 3px;
 `;
 
@@ -74,7 +76,6 @@ export default () => {
             <Logo href ="/">
                 <T1>When</T1>
                 <T2>When</T2>
-                
             </Logo>
             {
                 isLogin ? (

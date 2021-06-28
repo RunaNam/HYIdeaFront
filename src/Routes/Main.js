@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
     width: 100%;
-    height: 50rem;
+    height: 53rem;
     padding:0 20%;
     box-sizing: border-box;
 
@@ -24,17 +24,19 @@ const Text = styled.div`
 
 const Image = styled.div`
     background-color: black;
-    height:30rem;
-    border-radius: 1rem;
+    height:33rem;
+    border-radius: 2rem;
 `;
 
 const Button = styled.div`
     margin: 2rem auto 0;
     background-color: orange;
-    padding: 14px 22px;
+    padding: 15px 55px;
     border-radius: 0.5rem;
     width: fit-content;
     cursor:pointer;
+    color:white;
+    box-shadow: 1px 2px 5px 0px #bfbfbf;
 `;
 
 const Check =()=>{
@@ -54,7 +56,9 @@ export default ({})=>{
             <Image>
                     ''
             </Image>
-            <Button onClick={()=>{isLogin?(window.location.replace("/#/form")):(toast("로그인이 필요합니다"))}}>일정 맞추기</Button>
+            <Button onClick={()=>{isLogin?(window.location.replace("/#/form")):(toast("로그인이 필요합니다"))}}>
+                일정 맞추기
+            </Button>
             </Content>
         </Container>
     )
