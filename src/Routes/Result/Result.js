@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import ResultCalendar from "./ResultCalendar";
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -11,12 +11,11 @@ function Result() {
     const key_value = 0;
     const startDay = startDate.getDay();
     const disableClick = -1;
-    const ableClick = 0;
     let tmpDate = new Date(startDate);
     let [calendar, setCalendar] = useState([]);
     let count = 0;
     const [initial, setInital] = useState(true);
-    if (initial) {
+    if(initial){
         while (count < startDay) {
             calendar = [...calendar, { date: tmpDate, click: disableClick }];
             count++;
@@ -27,13 +26,17 @@ function Result() {
             tmpDate.setDate(tmpDate.getDate() + 1);
             count++;
         }
-        while (count % 7 != 0) {
+        while (count % 7 !== 0) {
             calendar = [...calendar, { date: tmpDate, click: disableClick }];
             count++;
         }
-        setInital(false);
-        setCalendar(calendar);
+        setInital(false)
+        setCalendar(calendar)
     }
+
+    useEffect(()=>{
+            calendar = [...calendar]
+    })
     console.log(calendar);
     console.log(startDate, endDate);
     const Days = ['일', '월', '화', '수', '목', '금', '토'];

@@ -23,23 +23,22 @@ function Calendar({ startDate, endDate }) {
             tmpDate.setDate(tmpDate.getDate() + 1);
             count++;
         }
-        while (count % 7 != 0) {
+        while (count % 7 !== 0) {
             calendar = [...calendar, { date: tmpDate, click: disableClick }];
             count++;
         }
-        setInital(false)
-        setCalendar(calendar)
+        setInital(false);
+        setCalendar(calendar);
     }
 
     useEffect(()=>{
-            calendar = [...calendar]
-    })
+        calendar = [...calendar];
+    },[calendar]);
 
     const handleClick = (key) => {
         const newC = calendar;
         newC[key].click = (newC[key].click + 1) % 3;
-        setCalendar(newC)
-        console.log(calendar)
+        setCalendar(newC);
     }
 
     return (
@@ -50,9 +49,9 @@ function Calendar({ startDate, endDate }) {
                         {key % 7 === 0 && <br/>}
                         {date.click === -1 ? (<button className="disable"></button>) : (
                             <>
-                                {date.click == 0 && <button className="possible" onClick={() => { handleClick(key); }} > {date.date.getDate()} {date.click} </button>}
-                                {date.click == 1 && <button className="adjustable" onClick={() => { handleClick(key); }}> {date.date.getDate()} {date.click}</button>}
-                                {date.click == 2 && <button className="impossible" onClick={() => { handleClick(key); }}> {date.date.getDate()} {date.click} </button>}
+                                {date.click === 0 && <button className="possible" onClick={() => { handleClick(key); }} > {date.date.getDate()} {date.click} </button>}
+                                {date.click === 1 && <button className="adjustable" onClick={() => { handleClick(key); }}> {date.date.getDate()} {date.click}</button>}
+                                {date.click === 2 && <button className="impossible" onClick={() => { handleClick(key); }}> {date.date.getDate()} {date.click} </button>}
                             </>
                         )}
                     </>
