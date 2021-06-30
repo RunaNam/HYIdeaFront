@@ -45,7 +45,7 @@ export default ({ }) => {
             startDate: new Date(),
             endDate: new Date(),
             key: 'selection',
-            color: "#FF9E1B"
+            color: "#000000"
         }
     ]);
     console.log(state[0].startDate)

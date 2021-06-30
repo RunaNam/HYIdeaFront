@@ -21,3 +21,20 @@
 .rdrDayToday .rdrDayNumber span:after {
   background: #ff9e1b !important;
 }
+
+.rdrInRange {
+  color: #d8d8d8 !important;
+}
+
+.rdrInRange ~ .rdrDayNumber span,
+.rdrSelected ~ .rdrDayNumber span {
+  color: black !important;
+}
+/* 
+.rdrStartEdge {
+  border-radius: 100% 0 0 100% !important;
+}
+
+.rdrEndEdge {
+  border-radius: 0 100% 100% 0 !important;
+} */
