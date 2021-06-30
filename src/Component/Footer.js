@@ -6,6 +6,9 @@ import footer from "../Images/Footer.png"
 
 const Footer = styled.footer`
     height: 4rem;
+    width: 100%;
+    position:absolute;
+    bottom: 0;
 `;
 
 const InfoContainer = styled.div`
