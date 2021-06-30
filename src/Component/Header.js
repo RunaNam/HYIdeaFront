@@ -46,7 +46,7 @@ const Link = styled.a`
 `;
 
 const contentStyle = {
-    width: "45%",
+    width: "55%",
     height: "65%",
     borderRadius: "15px",
     padding: "0px",
