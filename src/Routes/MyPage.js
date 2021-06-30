@@ -1,10 +1,11 @@
 import React from 'react';
-
-export default ({})=>{
-
+import Result from "../Routes/Result/Result";
+function MyPage(){
     return (
         <div>
-            Mypage
+            <Result></Result>
         </div>
     )
-}
+};
+
+export default MyPage;
