@@ -1,24 +1,52 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import Popup from "reactjs-popup";
 import Auth from "../Routes/Auth";
 
-const Icon = styled.div`
+import { toast } from "react-toastify";
 
+
+const Container = styled.div`
+    display:flex;
+    justify-content:space-between;
+    padding: 15px 30px;
+`;
+
+const Logo = styled.a`
+    display:flex;
+    font-size:1.2rem;
+    font-weight:bold;
+`;
+
+const T1 = styled.div`
+    border-bottom: 2px solid  #FF9E1B;
+    padding-bottom: 3px;
+
+`;
+const T2 = styled.div`
+    color: #FF9E1B;
+    border-bottom: 2px solid  #000000;
+    padding-bottom: 3px;
 `;
 
 const List = styled.div`
+    display:flex;
 `;
 
 const Text = styled.div`
     cursor:pointer;
+    color: #FF9E1B;
+    margin-left: 10px;
+`;
 
+const Link = styled.a`
+    color: #FF9E1B;
+    cursor:pointer;
 `;
 
 const contentStyle = {
-    width: "45%",
+    width: "55%",
     height: "65%",
     borderRadius: "15px",
     padding: "0px",
@@ -35,26 +63,31 @@ const X = styled.div`
 `;
 
 export default () => {
-    var [isLoggedIn, setIsLoggedIn] = useState(false)
+    const isLogin =localStorage.getItem('login')
+    const logout=()=>{
+        toast("로그아웃 되었습니다")
+        localStorage.removeItem('login');
+        window.location.replace("/")
+    }
+    console.log(isLogin)
 
     return (
-        <div>
-            <Link to="/">
-                <Icon>프로젝트명</Icon>
-            </Link>
+        <Container>
+            <Logo href ="/">
+                <T1>When</T1>
+                <T2>When</T2>
+            </Logo>
             {
-                isLoggedIn ? (
+                isLogin ? (
                     <List>
-                        <Link to="/myPage">
-                            <Text>마이페이지</Text>
-                        </Link>
-                        <Text>로그아웃</Text>
+                        <Link href="/#/myPage">마이페이지</Link>
+                        <Text onClick={()=>{logout()}}>로그아웃</Text>
                     </List>
                 ) : (
                     <List>
                         <Popup
                             trigger={
-                                <Text>로그인/회원가입</Text>
+                                <Text>login</Text>
                             }
                             modal
                             contentStyle={contentStyle}
@@ -71,6 +104,6 @@ export default () => {
                 )
             }
 
-        </div>
+        </Container>
     );
 }
