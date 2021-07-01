@@ -6,8 +6,7 @@ const getDateFormat=date=>{
     reVal+=date.getFullYear()+'.'+date.getMonth()+'.'+date.getDate();
     return reVal;
 }
-
-export default ()=>{
+function MyPage(){
     const startDate = new Date();
     const endDate = new Date();
     endDate.setDate(30);
@@ -23,4 +22,4 @@ export default ()=>{
     )
 };
 
-// export default MyPage;
+export default MyPage;
