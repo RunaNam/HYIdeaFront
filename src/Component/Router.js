@@ -19,6 +19,6 @@ export default () => (
             <Route path="/result" component={Result} />
             <Redirect path="*" to="/" />
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
     </Router>
 );

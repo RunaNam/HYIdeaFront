@@ -51,6 +51,12 @@ export default ({ }) => {
     console.log(state[0].startDate)
     console.log(state[0].endDate)
 
+    const make=()=>{
+        localStorage.setItem('startDate', state[0].startDate);
+        localStorage.setItem('endDate', state[0].endDate);
+        window.location.replace("/#/myPage")
+    }
+
     return (
         <Container>
 
@@ -65,7 +71,7 @@ export default ({ }) => {
             />
             <Buttons>
                 <Quit onClick={()=>{window.location.replace("/")}} >취소</Quit>
-                <Make onClick={()=>{window.location.replace("/#/myPage")}}>일정 생성하기</Make>
+                <Make onClick={()=>{make()}}>일정 생성하기</Make>
             </Buttons>
 
         </Container>
