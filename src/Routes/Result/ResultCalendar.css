@@ -15,5 +15,10 @@ button {
     background-color:skyblue;
 }
 .day{
-    background-color: burlywood;
+    background-color: white;
+}
+.outOfRange{
+    background-color:white;
+    border:0;
+    outLine:0;
 }
