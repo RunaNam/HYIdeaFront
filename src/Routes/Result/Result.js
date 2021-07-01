@@ -8,52 +8,19 @@ function getRandomInt(min, max) {
 function Result() {
     const startDate = new Date(2021, 5, 12);
     const endDate = new Date(2021, 5, 30);
-    const key_value = 0;
-    // const startDay = startDate.getDay();
-    // const disableClick = -1;
-    // let tmpDate = new Date(startDate);
-    // let [calendar, setCalendar] = useState([]);
-    // let count = 0;
-    // const [initial, setInital] = useState(true);
-    // if(initial){
-    //     while (count < startDay) {
-    //         calendar = [...calendar, { date: tmpDate, click: disableClick }];
-    //         count++;
-    //     }
-    //     while (tmpDate <= endDate) {
-    //         const tmp = new Date(tmpDate);
-    //         calendar = [...calendar, { date: tmp, click: getRandomInt(0,3) }];
-    //         tmpDate.setDate(tmpDate.getDate() + 1);
-    //         count++;
-    //     }
-    //     while (count % 7 !== 0) {
-    //         calendar = [...calendar, { date: tmpDate, click: disableClick }];
-    //         count++;
-    //     }
-    //     setInital(false)
-    //     setCalendar(calendar)
-    // }
-
-    // useEffect(()=>{
-    //         calendar = [...calendar]
-    // })
+    const key_value = 0;   
     const disableClick = -1;
-    const ableClick = 0;
     const outRangeClick = -2;
     let tmpDate = new Date(startDate);
     tmpDate.setDate(1);
     let lastDate = new Date(endDate);
     lastDate.setMonth(endDate.getMonth() + 1);
     lastDate.setDate(1);
-    
+
     let [calendar, setCalendar] = useState([]);
     const [initial, setInital] = useState(true);
-    // const [month, setMonth] = useState(startDate.getMonth());
     let count = 0;
 
-    // const nextMonth = () => setMonth(month + 1);
-    // const prevMonth = () => setMonth(month - 1);
-    console.log(lastDate);
     if (initial) {
         while (count < tmpDate.getDay()) {
             calendar = [...calendar, { date: tmpDate, click: outRangeClick }];
