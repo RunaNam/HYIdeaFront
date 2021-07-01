@@ -7,6 +7,7 @@ function ResultCalendar(myCalendar) {
     return (
         <>
         <div>{
+            
             calendar.calendar.map((date, key) => {
                 return (
                     <>
