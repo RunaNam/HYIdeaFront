@@ -4,6 +4,7 @@ import { ko } from 'react-date-range/dist/locale';
 
 import { DateRange } from 'react-date-range';
 import './Form.css'
+import useInput from '../Hooks/useInput';
 
 const Container = styled.div`
     width: 100%;
@@ -39,6 +40,10 @@ const Make = styled.div`
     box-shadow: 1px 2px 5px #bfbfbf;
 `;
 
+const Name = styled.input`
+
+`;
+
 export default ({ }) => {
     const [state, setState] = useState([
         {
@@ -48,17 +53,18 @@ export default ({ }) => {
             color: "#000000"
         }
     ]);
-    console.log(state[0].startDate)
-    console.log(state[0].endDate)
+    const name = useInput("");
 
     const make=()=>{
         localStorage.setItem('startDate', state[0].startDate);
         localStorage.setItem('endDate', state[0].endDate);
+        localStorage.setItem('name', name.value);
         window.location.replace("/#/myPage")
     }
 
     return (
         <Container>
+            <Name {...name}></Name>
 
             <DateRange
                 editableDateInputs={true}
