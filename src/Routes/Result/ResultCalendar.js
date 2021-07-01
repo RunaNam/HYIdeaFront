@@ -10,7 +10,6 @@ function ResultCalendar(myCalendar) {
             calendar.calendar.map((date, key) => {
                 return (
                     <>
-                        {date.date.getDay()  === 7 && <div></div>}
                         {date.click === -1 ? (<button className="disable">{date.date.getDate()} {date.click}</button>) : (
                             <>
                                 {date.click === -2 && <button className="outOfRange"></button>}
@@ -19,6 +18,7 @@ function ResultCalendar(myCalendar) {
                                 {date.click == 1 && <button className="adjustable" > {date.date.getMonth()} {date.date.getDate()}</button>}
                             </>
                         )}
+                        {date.date.getDay()  === 6 && <div></div>}
                     </>
                 )
             }
