@@ -1,0 +1,24 @@
+button {
+    width: 70px;
+    line-height: 9em;
+    height: 70px;
+    margin: 5px;
+}
+
+.possible{
+    background-color:white;
+}
+.adjustable{
+    background-color:yellow;
+}
+.impossible{
+    background-color:skyblue;
+}
+.day{
+    background-color: white;
+}
+.outOfRange{
+    background-color:white;
+    border:0;
+    outLine:0;
+}
