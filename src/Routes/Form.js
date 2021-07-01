@@ -52,8 +52,8 @@ export default ({ }) => {
     console.log(state[0].endDate)
 
     const make=()=>{
-        localStorage.setItem('startDate', state[0].startDate);
-        localStorage.setItem('endDate', state[0].endDate);
+        sessionStorage.setItem('startDate', state[0].startDate);
+        sessionStorage.setItem('endDate', state[0].endDate);
         window.location.replace("/#/myPage")
     }
 

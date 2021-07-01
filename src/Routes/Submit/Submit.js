@@ -2,9 +2,10 @@ import React from 'react';
 import Calendar from './Calendar';
 
 function Submit() {
-
-    const startDate = new Date(2021,5,4);
-    const endDate= new Date(2021,5,11);
+    const startDate = new Date(sessionStorage.getItem("startDate"));
+    const endDate = new Date(sessionStorage.getItem("endDate"));
+    // const startDate = new Date(2021,5,4);
+    // const endDate= new Date(2021,5,11);
     const key_value=0;
     console.log(startDate,endDate);
     const Days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
