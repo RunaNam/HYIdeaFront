@@ -1,11 +1,14 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 
-import footer from "../Images/Footer.png"
+import footer from "../Styles/Images/Footer.png"
 
 
 const Footer = styled.footer`
     height: 4rem;
+    width: 100%;
+    position:absolute;
+    bottom: 0;
 `;
 
 const InfoContainer = styled.div`

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import { toast } from "react-toastify";
 
-import auth from "../Images/Auth.jpg"
+import auth from "../Styles/Images/Auth.jpg"
 
 
 

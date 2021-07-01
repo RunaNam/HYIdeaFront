@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 import styled from "styled-components";
 
-import main from "../Images/Main.png"
+import main from "../Styles/Images/Main.png"
 
 
 const Container = styled.div`
