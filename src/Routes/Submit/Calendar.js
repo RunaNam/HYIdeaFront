@@ -28,7 +28,7 @@ function Calendar({ startDate, endDate }) {
             tmpDate.setDate(tmpDate.getDate() + 1);
             count++;
         }
-        while (tmpDate < endDate) {
+        while (tmpDate <= endDate) {
             const tmp = new Date(tmpDate);
             calendar = [...calendar, { date: tmp, click: ableClick }];
             tmpDate.setDate(tmpDate.getDate() + 1);
