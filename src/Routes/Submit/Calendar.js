@@ -71,8 +71,6 @@ function Calendar({ startDate, endDate }) {
                 calendar.map((date, key) => {
                     return (
                         <>
-                            {date.date.getDay() === 7 && <br />}
-                            {/* {date.date.getDate()===1&&{val=val+<br/>} */}
                             {date.click === -1 ? (<button className="disable">{date.date.getDate()} {date.click}</button>) : (
                                 <>
                                     {date.click === -2 && <button className="outOfRange"></button>}
@@ -81,6 +79,7 @@ function Calendar({ startDate, endDate }) {
                                     {date.click === 2 && <button className="impossible" onClick={() => { handleClick(key); }}> {date.date.getDate()} {date.click} </button>}
                                 </>
                             )}
+                            {date.date.getDay() === 6 && <br />}
                         </>
                     )
                 }
