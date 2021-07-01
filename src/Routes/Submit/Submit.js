@@ -7,10 +7,10 @@ function Submit() {
     const endDate= new Date(2021,5,11);
     const key_value=0;
     console.log(startDate,endDate);
-    const Days = ['일', '월', '화', '수', '목', '금', '토'];
+    const Days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const days_row = Days.map(
         (day) => (
-            <span>{day}</span>
+            <button className="day">{day}</button>
         )
     );
     return (
