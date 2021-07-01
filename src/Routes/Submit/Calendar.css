@@ -14,3 +14,14 @@ button {
 .impossible{
     background-color:skyblue;
 }
+.day{
+    background-color:white;
+    height: 30px;
+    border:0;
+    outLine:0;
+}
+.outOfRange{
+    background-color:white;
+    border:0;
+    outLine:0;
+}

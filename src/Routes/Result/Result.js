@@ -7,17 +7,62 @@ function getRandomInt(min, max) {
 }
 function Result() {
     const startDate = new Date(2021, 5, 12);
-    const endDate = new Date(2021, 5, 31);
+    const endDate = new Date(2021, 5, 30);
     const key_value = 0;
-    const startDay = startDate.getDay();
+    // const startDay = startDate.getDay();
+    // const disableClick = -1;
+    // let tmpDate = new Date(startDate);
+    // let [calendar, setCalendar] = useState([]);
+    // let count = 0;
+    // const [initial, setInital] = useState(true);
+    // if(initial){
+    //     while (count < startDay) {
+    //         calendar = [...calendar, { date: tmpDate, click: disableClick }];
+    //         count++;
+    //     }
+    //     while (tmpDate <= endDate) {
+    //         const tmp = new Date(tmpDate);
+    //         calendar = [...calendar, { date: tmp, click: getRandomInt(0,3) }];
+    //         tmpDate.setDate(tmpDate.getDate() + 1);
+    //         count++;
+    //     }
+    //     while (count % 7 !== 0) {
+    //         calendar = [...calendar, { date: tmpDate, click: disableClick }];
+    //         count++;
+    //     }
+    //     setInital(false)
+    //     setCalendar(calendar)
+    // }
+
+    // useEffect(()=>{
+    //         calendar = [...calendar]
+    // })
     const disableClick = -1;
+    const ableClick = 0;
+    const outRangeClick = -2;
     let tmpDate = new Date(startDate);
+    tmpDate.setDate(1);
+    let lastDate = new Date(endDate);
+    lastDate.setMonth(endDate.getMonth() + 1);
+    lastDate.setDate(1);
+    
     let [calendar, setCalendar] = useState([]);
-    let count = 0;
     const [initial, setInital] = useState(true);
-    if(initial){
-        while (count < startDay) {
-            calendar = [...calendar, { date: tmpDate, click: disableClick }];
+    // const [month, setMonth] = useState(startDate.getMonth());
+    let count = 0;
+
+    // const nextMonth = () => setMonth(month + 1);
+    // const prevMonth = () => setMonth(month - 1);
+    console.log(lastDate);
+    if (initial) {
+        while (count < tmpDate.getDay()) {
+            calendar = [...calendar, { date: tmpDate, click: outRangeClick }];
+            count++;
+        }
+        while (tmpDate < startDate) {
+            const tmp = new Date(tmpDate);
+            calendar = [...calendar, { date: tmp, click: disableClick }];
+            tmpDate.setDate(tmpDate.getDate() + 1);
             count++;
         }
         while (tmpDate <= endDate) {
@@ -26,20 +71,27 @@ function Result() {
             tmpDate.setDate(tmpDate.getDate() + 1);
             count++;
         }
-        while (count % 7 !== 0) {
-            calendar = [...calendar, { date: tmpDate, click: disableClick }];
+        while (tmpDate < lastDate) {
+            const tmp = new Date(tmpDate);
+            calendar = [...calendar, { date: tmp, click: disableClick }];
+            tmpDate.setDate(tmpDate.getDate() + 1);
             count++;
         }
-        setInital(false)
-        setCalendar(calendar)
+        while (count % 7 !== 0) {
+            calendar = [...calendar, { date: tmpDate, click: outRangeClick }];
+            count++;
+        }
+        setInital(false);
+        setCalendar(calendar);
     }
 
-    useEffect(()=>{
-            calendar = [...calendar]
-    })
+    useEffect(() => {
+        calendar = [...calendar]
+    }, [calendar]);
+
     console.log(calendar);
     console.log(startDate, endDate);
-    const Days = ['일', '월', '화', '수', '목', '금', '토'];
+    const Days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const days_row = Days.map(
         (day) => (
             <button className="day">{day}</button>
