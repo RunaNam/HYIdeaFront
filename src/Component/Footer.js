@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 
-import footer from "../Images/Footer.png"
+import footer from "../Styles/Images/Footer.png"
 
 
 const Footer = styled.footer`
