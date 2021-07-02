@@ -105,6 +105,7 @@ const ResetBtn = styled.div`
     color:white;
     box-shadow: 1px 2px 5px 0px #bfbfbf;
 `;
+
 function Submit() {
     const startDate = new Date(sessionStorage.getItem("startDate"));
     const endDate = new Date(sessionStorage.getItem("endDate"));
@@ -166,6 +167,12 @@ function Submit() {
         setCalendar(calendar);
     }
 
+    const sendCalendar=(calendar)=>{
+        sessionStorage.setItem('Calendar', calendar);
+        console.log(sessionStorage.getItem('Calendar'));
+        window.location.replace("/#/myPage");
+    }
+
     useEffect(() => {
         calendar = [...calendar]
     }, [calendar, testClick]);
@@ -197,19 +204,19 @@ function Submit() {
                 <Test>
                     <Text>클릭해보세요</Text>
                     <>
-                        {testClick == 0 && <Btn onClick={() => { setTestClick((testClick + 1) % 3) }}
+                        {testClick === 0 && <Btn onClick={() => { setTestClick((testClick + 1) % 3) }}
                             style={{ borderBottom: '4px solid #008000' }}>  1</Btn>}
-                        {testClick == 2 && <Btn onClick={() => { setTestClick((testClick + 1) % 3) }}
+                        {testClick === 2 && <Btn onClick={() => { setTestClick((testClick + 1) % 3) }}
                             style={{ borderBottom: '4px solid #EA2027' }}>  1</Btn>}
-                        {testClick == 1 && <Btn onClick={() => { setTestClick((testClick + 1) % 3) }}
+                        {testClick === 1 && <Btn onClick={() => { setTestClick((testClick + 1) % 3) }}
                             style={{ borderBottom: '4px solid #FFC312' }}>  1</Btn>}
                     </>
-                    {testClick == 0 && <Des >가능한 날</Des>}
-                    {testClick == 2 && <Des >불가능한 날</Des>}
-                    {testClick == 1 && <Des >조정 가능한 날</Des>}
+                    {testClick === 0 && <Des >가능한 날</Des>}
+                    {testClick === 2 && <Des >불가능한 날</Des>}
+                    {testClick === 1 && <Des >조정 가능한 날</Des>}
 
                 </Test>
-                <SubmitBtn onClick={() => { }}>제출하기</SubmitBtn>
+                <SubmitBtn onClick={() => {sendCalendar(); }}>제출하기</SubmitBtn>
                 <ResetBtn onClick={() => { resetCalendar(calendar); }}>다시 입력하기</ResetBtn>
             </InfoContainer>
             <DayContainer>

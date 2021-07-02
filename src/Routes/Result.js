@@ -29,8 +29,8 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
 }
 function Result() {
-    const startDate = new Date(2021, 5, 12);
-    const endDate = new Date(2021, 5, 30);
+    const startDate = new Date(sessionStorage.getItem("startDate"));
+    const endDate = new Date(sessionStorage.getItem("endDate"));
     const key_value = 0;   
     const disableClick = -1;
     const outRangeClick = -2;

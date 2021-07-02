@@ -44,6 +44,17 @@ const FixBtn = styled.div`
     box-shadow: 1px 2px 5px 0px #bfbfbf;
 `;
 
+const LinkCopyBtn = styled.div`
+    margin: 5rem auto 0;
+    background-color: #FF9E1B;
+    padding: 15px 55px;
+    border-radius: 0.5rem;
+    width: fit-content;
+    cursor:pointer;
+    color:white;
+    box-shadow: 1px 2px 5px 0px #bfbfbf;
+`;
+
 
 const getDateFormat=date=>{
     let reVal="";
@@ -51,9 +62,8 @@ const getDateFormat=date=>{
     return reVal;
 }
 function MyPage(){
-    const startDate = new Date();
-    const endDate = new Date();
-    endDate.setDate(30);
+    const startDate = new Date(sessionStorage.getItem("startDate"));
+    const endDate = new Date(sessionStorage.getItem("endDate"));
     return (
         <Container>
             <InfoContainer>
@@ -61,6 +71,7 @@ function MyPage(){
                 <Schedule>멋사 프로젝트</Schedule>
                 <Days>{getDateFormat(startDate)} ~ {getDateFormat(endDate)}</Days>
                 <FixBtn>일정 확정하기</FixBtn>
+                <LinkCopyBtn>링크 공유</LinkCopyBtn>
             </InfoContainer>
             <Result></Result>
         </Container>
