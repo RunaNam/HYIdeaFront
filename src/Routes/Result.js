@@ -1,5 +1,28 @@
 import React, { useState,useEffect } from 'react';
-import ResultCalendar from "./ResultCalendar";
+import Calendar from "../Component/Calendar";
+import styled from "styled-components";
+
+const Container = styled.div`
+    width: 70%;
+    padding: 5% 10%;
+`;
+
+const DayRow = styled.div`
+    display:flex;
+    cursor: pointer;
+`;
+
+const Day = styled.div`
+    width: calc(100%/7);
+    padding: 0 3px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #BEBEBE;
+    height: 4rem;
+    line-height: 4rem;
+    font-size: 1.2rem;
+`;
+
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -56,21 +79,21 @@ function Result() {
         calendar = [...calendar]
     }, [calendar]);
 
-    console.log(calendar);
-    console.log(startDate, endDate);
+
     const Days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const days_row = Days.map(
         (day) => (
-            <button className="day">{day}</button>
+            <Day>{day}</Day>
         )
     );
+    
     return (
-        <div>
-            <div className="DayRow">
+        <Container>
+            <DayRow>
                 {days_row}
-            </div>
-            <ResultCalendar key={key_value} calendar={calendar}></ResultCalendar>
-        </div>
+            </DayRow>
+            <Calendar key={key_value} myCalendar={calendar} ></Calendar>
+        </Container>
     )
 }
 export default Result;

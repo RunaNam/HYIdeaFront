@@ -21,7 +21,7 @@ const Buttons = styled.div`
 `;
 
 const Quit = styled.div`
-    background-color: #FFDCAC;
+    background-color: #000000;
     width: 7rem;
     padding: 13px 8px;
     border-radius: 0.2rem;
@@ -41,7 +41,13 @@ const Make = styled.div`
 `;
 
 const Name = styled.input`
-
+    width: 60%;
+    margin: 0 20% 20px;
+    font-size: 1.3rem;
+    border: none;
+    border-bottom: 2px solid #FF9E1B;
+    font-family: 'Noto Sans CJK KR';
+    text-align: center;
 `;
 
 export default ({ }) => {
@@ -64,7 +70,7 @@ export default ({ }) => {
 
     return (
         <Container>
-            <Name {...name}></Name>
+            <Name {...name} placeholder ="일정 이름"></Name>
 
             <DateRange
                 editableDateInputs={true}
