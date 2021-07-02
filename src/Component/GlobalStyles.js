@@ -9,6 +9,7 @@ const globalStyles = createGlobalStyle`
     *{
         padding: 0;
         margin: 0;
+        user-select: none;
     }
     body{
         box-sizing: border-box;

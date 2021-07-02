@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Calendar from '../Component/Calendar';
 
 import styled from "styled-components";
@@ -73,25 +73,59 @@ const MyDays = styled.div`
     font-size: 1.2rem;
 `;
 
+const Btn = styled.div`
+    width: calc(100%/7 - 20px);
+    padding: 0 3px;
+    box-sizing: border-box;
+    text-align:center;
+    cursor:pointer;
+    height: 4rem;
+    line-height: 4rem;
+    font-size: 1.2rem;
+    margin: 10px;
+`;
+
+const SubmitBtn = styled.div`
+    margin: 5rem auto 0;
+    background-color: #FF9E1B;
+    padding: 15px 55px;
+    border-radius: 0.5rem;
+    width: fit-content;
+    cursor:pointer;
+    color:white;
+    box-shadow: 1px 2px 5px 0px #bfbfbf;
+`;
+const ResetBtn = styled.div`
+    margin: 5rem auto 0;
+    background-color: #FF9E1B;
+    padding: 15px 55px;
+    border-radius: 0.5rem;
+    width: fit-content;
+    cursor:pointer;
+    color:white;
+    box-shadow: 1px 2px 5px 0px #bfbfbf;
+`;
 function Submit() {
     const startDate = new Date(sessionStorage.getItem("startDate"));
     const endDate = new Date(sessionStorage.getItem("endDate"));
-    
+
     const disableClick = -1;
     const ableClick = 0;
     const outRangeClick = -2;
+
     let tmpDate = new Date(startDate);
     tmpDate.setDate(1);
+
     let lastDate = new Date(endDate);
     lastDate.setMonth(endDate.getMonth() + 1);
     lastDate.setDate(1);
-    
+
     let [calendar, setCalendar] = useState([]);
     const [initial, setInital] = useState(true);
+    const [testClick, setTestClick] = useState(0);
 
-    
     let count = 0;
-    console.log(lastDate);
+
     if (initial) {
         while (count < tmpDate.getDay()) {
             calendar = [...calendar, { date: tmpDate, click: outRangeClick }];
@@ -123,9 +157,18 @@ function Submit() {
         setCalendar(calendar);
     }
 
+    const resetCalendar = (calendar) => {
+        calendar.map((date) => {
+            if (date.click >= 0 && date.click < 3) {
+                date.click = ableClick;
+            }
+        })
+        setCalendar(calendar);
+    }
+
     useEffect(() => {
         calendar = [...calendar]
-    }, [calendar]);
+    }, [calendar, testClick]);
 
     const handleClick = (key) => {
         const newC = calendar;
@@ -133,10 +176,8 @@ function Submit() {
         setCalendar(newC);
     }
 
-
-
-    const key_value=0;
-    console.log(startDate,endDate);
+    const key_value = 0;
+    console.log(startDate, endDate);
     const Days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const days_row = Days.map(
         (day) => (
@@ -144,9 +185,9 @@ function Submit() {
         )
     );
 
-    const getDateFormat=date=>{
-        let reVal="";
-        reVal+=date.getFullYear()+'.'+date.getMonth()+'.'+date.getDate();
+    const getDateFormat = date => {
+        let reVal = "";
+        reVal += date.getFullYear() + '.' + date.getMonth() + '.' + date.getDate();
         return reVal;
     }
 
@@ -154,22 +195,34 @@ function Submit() {
         <Container>
             <InfoContainer>
                 <Test>
-                    <Text>클릭하세요</Text>
-                    <Number>1</Number>
-                    <Des>가능한날</Des>
+                    <Text>클릭해보세요</Text>
+                    <>
+                        {testClick == 0 && <Btn onClick={() => { setTestClick((testClick + 1) % 3) }}
+                            style={{ borderBottom: '4px solid #008000' }}>  1</Btn>}
+                        {testClick == 2 && <Btn onClick={() => { setTestClick((testClick + 1) % 3) }}
+                            style={{ borderBottom: '4px solid #EA2027' }}>  1</Btn>}
+                        {testClick == 1 && <Btn onClick={() => { setTestClick((testClick + 1) % 3) }}
+                            style={{ borderBottom: '4px solid #FFC312' }}>  1</Btn>}
+                    </>
+                    {testClick == 0 && <Des >가능한 날</Des>}
+                    {testClick == 2 && <Des >불가능한 날</Des>}
+                    {testClick == 1 && <Des >조정 가능한 날</Des>}
+
                 </Test>
+                <SubmitBtn onClick={() => { }}>제출하기</SubmitBtn>
+                <ResetBtn onClick={() => { resetCalendar(calendar); }}>다시 입력하기</ResetBtn>
             </InfoContainer>
             <DayContainer>
                 <Info>
-                        <Title>멋쟁이 사자처럼 팀프로젝트 일정</Title>
-                        <MyDays>{getDateFormat(startDate)} ~ {getDateFormat(endDate)}</MyDays>
+                    <Title>멋쟁이 사자처럼 팀프로젝트 일정</Title>
+                    <MyDays>{getDateFormat(startDate)} ~ {getDateFormat(endDate)}</MyDays>
 
                 </Info>
                 <DayRow>
                     {days_row}
                 </DayRow>
                 <Cal>
-                    <Calendar myCalendar={calendar} key = {key_value} startDate={startDate} endDate={endDate} handleClick = {handleClick}></Calendar>
+                    <Calendar myCalendar={calendar} key={key_value} handleClick={handleClick}></Calendar>
                 </Cal>
             </DayContainer>
         </Container>

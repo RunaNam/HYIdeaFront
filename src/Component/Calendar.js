@@ -19,10 +19,10 @@ const Btn = styled.div`
     margin: 10px;
 `;
 
-export default ({myCalendar, handleClick}) =>{
-    const calendar = myCalendar;
+export default ({ myCalendar, handleClick }) => {
+    let calendar = myCalendar;
 
-    
+
 
     return (
         <Container>{
@@ -33,30 +33,32 @@ export default ({myCalendar, handleClick}) =>{
                             <>
                                 {date.click === -2 && <Btn></Btn>}
                                 {
-                                    handleClick ?(
+                                    handleClick ? (
                                         <>
-                                        {date.click == 0 && <Btn onClick={() => { handleClick(key); }} style={{borderBottom:'4px solid #008000'}}>  {date.date.getDate()}</Btn>}
-                                        {date.click == 2 && <Btn onClick={() => { handleClick(key); }} style={{borderBottom:'4px solid #EA2027'}}>  {date.date.getDate()}</Btn>}
-                                        {date.click == 1 && <Btn onClick={() => { handleClick(key); }} style={{borderBottom:'4px solid #FFC312'}}>  {date.date.getDate()}</Btn>}
+                                            {date.click == 0 && <Btn onClick={() => { handleClick(key); }}
+                                                style={{ borderBottom: '4px solid #008000' }}>  {date.date.getDate()}</Btn>}
+                                            {date.click == 2 && <Btn onClick={() => { handleClick(key); }}
+                                                style={{ borderBottom: '4px solid #EA2027' }}>  {date.date.getDate()}</Btn>}
+                                            {date.click == 1 && <Btn onClick={() => { handleClick(key); }}
+                                                style={{ borderBottom: '4px solid #FFC312' }}>  {date.date.getDate()}</Btn>}
                                         </>
-                                    
-                                    ):(
+
+                                    ) : (
                                         <>
-                                        {date.click == 0 && <Btn >  {date.date.getDate()}</Btn>}
-                                        {date.click == 2 && <Btn>  {date.date.getDate()}</Btn>}
-                                        {date.click == 1 && <Btn >  {date.date.getDate()}</Btn>}
+                                            {date.click == 0 && <Btn >  {date.date.getDate()}</Btn>}
+                                            {date.click == 2 && <Btn>  {date.date.getDate()}</Btn>}
+                                            {date.click == 1 && <Btn >  {date.date.getDate()}</Btn>}
                                         </>
                                     )
                                 }
                             </>
                         )}
-                        {date.date.getDay()  === 6 && <br/>}
+                        {date.date.getDay() === 6 && <br />}
                     </>
                 )
             }
             )
         }
-        
         </Container>
     )
 }
