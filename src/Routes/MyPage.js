@@ -9,9 +9,10 @@ const InfoContainer = styled.div`
    width:35%;
    display: flex;
    flex-direction: column;
-   padding: 5%;
+   padding: 7% 0 0 8%;
    box-sizing: border-box;
    color:#FF9E1B;
+   text-align: center;
 `;
 
 const Mypage = styled.div`
@@ -34,10 +35,10 @@ const Days = styled.div`
 
 const FixBtn = styled.div`
     margin: 5rem auto 0;
-    background-color: #FF9E1B;
+    background-color: #000000;
     padding: 15px 55px;
     border-radius: 0.5rem;
-    width: fit-content;
+    width: 6rem;
     cursor:pointer;
     color:white;
     box-shadow: 1px 2px 5px 0px #bfbfbf;
@@ -49,10 +50,11 @@ const LinkCopyBtn = styled.button`
     padding: 15px 55px;
     border: none;
     border-radius: 0.5rem;
-    width: fit-content;
+    width: 100%;
     cursor:pointer;
     color:white;
     box-shadow: 1px 2px 5px 0px #bfbfbf;
+    font-size: 1rem;
 `;
 
 const LinkName = styled.input`
@@ -83,7 +85,7 @@ function MyPage() {
                 <Mypage>마이페이지</Mypage>
                 <Schedule>{formName}</Schedule>
                 <Days>{getDateFormat(startDate)} ~ {getDateFormat(endDate)}</Days>
-                <FixBtn>일정 확정하기</FixBtn>
+                {/* <FixBtn>일정 확정하기</FixBtn> */}
                 <>
                 <LinkName  type="text" value={str} ref={textInput} readOnly></LinkName>
                 <LinkCopyBtn onClick={copy}>
