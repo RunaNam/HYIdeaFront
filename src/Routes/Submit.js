@@ -109,6 +109,7 @@ const ResetBtn = styled.div`
 function Submit() {
     const startDate = new Date(sessionStorage.getItem("startDate"));
     const endDate = new Date(sessionStorage.getItem("endDate"));
+    
     const formName = sessionStorage.getItem("name");
 
     const disableClick = -1;

@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Result from "./Result";
 import styled from "styled-components";
-
 const Container = styled.div`
    display: flex;
 `;
@@ -44,10 +43,11 @@ const FixBtn = styled.div`
     box-shadow: 1px 2px 5px 0px #bfbfbf;
 `;
 
-const LinkCopyBtn = styled.div`
+const LinkCopyBtn = styled.button`
     margin: 5rem auto 0;
     background-color: #FF9E1B;
     padding: 15px 55px;
+    border: none;
     border-radius: 0.5rem;
     width: fit-content;
     cursor:pointer;
@@ -55,16 +55,27 @@ const LinkCopyBtn = styled.div`
     box-shadow: 1px 2px 5px 0px #bfbfbf;
 `;
 
+const LinkName = styled.input`
+    display:none;
+`;
 
-const getDateFormat=date=>{
-    let reVal="";
-    reVal+=date.getFullYear()+'.'+date.getMonth()+'.'+date.getDate();
+const getDateFormat = date => {
+    let reVal = "";
+    reVal += date.getFullYear() + '.' + date.getMonth() + '.' + date.getDate();
     return reVal;
 }
-function MyPage(){
+function MyPage() {
     const startDate = new Date(sessionStorage.getItem("startDate"));
     const endDate = new Date(sessionStorage.getItem("endDate"));
     const formName = sessionStorage.getItem("name");
+    
+    const textInput = useRef();
+    const str = "http://localhost:3000/#/submit";
+    const copy = () => {
+        const el = textInput.current;
+        el.select();
+        document.execCommand("copy");
+    }
 
     return (
         <Container>
@@ -73,7 +84,12 @@ function MyPage(){
                 <Schedule>{formName}</Schedule>
                 <Days>{getDateFormat(startDate)} ~ {getDateFormat(endDate)}</Days>
                 <FixBtn>일정 확정하기</FixBtn>
-                <LinkCopyBtn>링크 공유</LinkCopyBtn>
+                <>
+                <LinkName  type="text" value={str} ref={textInput} readOnly></LinkName>
+                <LinkCopyBtn onClick={copy}>
+                    링크 공유</LinkCopyBtn>
+                    </>
+                    
             </InfoContainer>
             <Result></Result>
         </Container>
