@@ -9,7 +9,7 @@ import useInput from '../Hooks/useInput';
 const Container = styled.div`
     width: 100%;
     box-sizing: border-box;
-    padding: 4rem 20% 0;
+    padding: 4rem 20%;
 `;
 
 const Buttons = styled.div`

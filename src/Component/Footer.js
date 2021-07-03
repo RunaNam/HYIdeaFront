@@ -8,8 +8,6 @@ import { faFacebookF, faInstagram, faTwitter } from "@fortawesome/free-brands-sv
 const Footer = styled.footer`
     height: 4rem;
     width: 100%;
-    position:absolute;
-    bottom: 0;
     background-color: black;
 `;
 
