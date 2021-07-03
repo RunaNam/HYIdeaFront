@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-import footer from "../Styles/Images/Footer.png"
 
 
 const Footer = styled.footer`
@@ -9,45 +10,25 @@ const Footer = styled.footer`
     width: 100%;
     position:absolute;
     bottom: 0;
-`;
-
-const InfoContainer = styled.div`
-    position: absolute;
-    bottom: 1.2rem;
-    color: white;
-    font-size: 0.9rem;
-    line-height:1.1rem;
-    left: 12%;
-`;
-
-const FooterImg = styled.img`
-    width:100%;
-    height: 100%;
-
-`;
-
-
-const InfoTitle = styled.div`
-
+    background-color: black;
 `;
 
 
 const Info = styled.div`
-
+    color: white;
+    font-size: 1.5rem;
+    line-height: 4rem;
+    text-align: center;
 `;
 
 export default ()=>{
     return (
         <Footer>
-            <FooterImg src = {footer}/>
-            <InfoContainer>
-                <InfoTitle>
-                    CONTACT
-                </InfoTitle>
-                <Info>
-                    adobexd@mail.com
-                </Info>
-            </InfoContainer>
+            <Info>
+            <FontAwesomeIcon icon={faInstagram} style={{marginRight:"20px"}}/>
+            <FontAwesomeIcon icon={faTwitter} style={{marginRight:"20px"}}/>
+            <FontAwesomeIcon icon={faFacebookF} style={{marginRight:"20px"}}/>
+            </Info>
         </Footer>
 
     )

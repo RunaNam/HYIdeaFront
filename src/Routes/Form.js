@@ -4,6 +4,7 @@ import { ko } from 'react-date-range/dist/locale';
 
 import { DateRange } from 'react-date-range';
 import './Form.css'
+import useInput from '../Hooks/useInput';
 
 const Container = styled.div`
     width: 100%;
@@ -20,7 +21,7 @@ const Buttons = styled.div`
 `;
 
 const Quit = styled.div`
-    background-color: #FFDCAC;
+    background-color: #000000;
     width: 7rem;
     padding: 13px 8px;
     border-radius: 0.2rem;
@@ -39,6 +40,16 @@ const Make = styled.div`
     box-shadow: 1px 2px 5px #bfbfbf;
 `;
 
+const Name = styled.input`
+    width: 60%;
+    margin: 0 20% 20px;
+    font-size: 1.3rem;
+    border: none;
+    border-bottom: 2px solid #FF9E1B;
+    font-family: 'Noto Sans CJK KR';
+    text-align: center;
+`;
+
 export default ({ }) => {
     const [state, setState] = useState([
         {
@@ -48,17 +59,18 @@ export default ({ }) => {
             color: "#000000"
         }
     ]);
-    console.log(state[0].startDate)
-    console.log(state[0].endDate)
+    const name = useInput("");
 
     const make=()=>{
-        sessionStorage.setItem('startDate', state[0].startDate);
-        sessionStorage.setItem('endDate', state[0].endDate);
+        localStorage.setItem('startDate', state[0].startDate);
+        localStorage.setItem('endDate', state[0].endDate);
+        localStorage.setItem('name', name.value);
         window.location.replace("/#/myPage")
     }
 
     return (
         <Container>
+            <Name {...name} placeholder ="일정 이름"></Name>
 
             <DateRange
                 editableDateInputs={true}
