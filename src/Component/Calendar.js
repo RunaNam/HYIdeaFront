@@ -21,7 +21,7 @@ const Btn = styled.div`
 
 export default ({ myCalendar, handleClick }) => {
     let calendar = myCalendar;
-
+    console.log(calendar);
 
 
     return (

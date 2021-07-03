@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import Calendar from "../Component/Calendar";
 import styled from "styled-components";
-
+import ResultCalendar from '../Component/ResultCalendar';
 const Container = styled.div`
     width: 70%;
     padding: 5% 10%;
@@ -31,6 +31,7 @@ function getRandomInt(min, max) {
 function Result() {
     const startDate = new Date(sessionStorage.getItem("startDate"));
     const endDate = new Date(sessionStorage.getItem("endDate"));
+
     const key_value = 0;   
     const disableClick = -1;
     const outRangeClick = -2;
@@ -92,7 +93,8 @@ function Result() {
             <DayRow>
                 {days_row}
             </DayRow>
-            <Calendar key={key_value} myCalendar={calendar} ></Calendar>
+            <ResultCalendar key={key_value} myCalendar={calendar} ></ResultCalendar>
+            {/* <Calendar key={key_value} myCalendar={calendar} ></Calendar> */}
         </Container>
     )
 }
