@@ -62,9 +62,9 @@ export default ({ }) => {
     const name = useInput("");
 
     const make=()=>{
-        localStorage.setItem('startDate', state[0].startDate);
-        localStorage.setItem('endDate', state[0].endDate);
-        localStorage.setItem('name', name.value);
+        sessionStorage.setItem('startDate', state[0].startDate);
+        sessionStorage.setItem('endDate', state[0].endDate);
+        sessionStorage.setItem('name', name.value);
         window.location.replace("/#/myPage")
     }
 

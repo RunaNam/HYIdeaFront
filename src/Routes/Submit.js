@@ -109,6 +109,7 @@ const ResetBtn = styled.div`
 function Submit() {
     const startDate = new Date(sessionStorage.getItem("startDate"));
     const endDate = new Date(sessionStorage.getItem("endDate"));
+    const formName = sessionStorage.getItem("name");
 
     const disableClick = -1;
     const ableClick = 0;
@@ -221,7 +222,7 @@ function Submit() {
             </InfoContainer>
             <DayContainer>
                 <Info>
-                    <Title>멋쟁이 사자처럼 팀프로젝트 일정</Title>
+                    <Title>{formName}</Title>
                     <MyDays>{getDateFormat(startDate)} ~ {getDateFormat(endDate)}</MyDays>
 
                 </Info>

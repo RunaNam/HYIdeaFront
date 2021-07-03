@@ -64,11 +64,13 @@ const getDateFormat=date=>{
 function MyPage(){
     const startDate = new Date(sessionStorage.getItem("startDate"));
     const endDate = new Date(sessionStorage.getItem("endDate"));
+    const formName = sessionStorage.getItem("name");
+
     return (
         <Container>
             <InfoContainer>
                 <Mypage>마이페이지</Mypage>
-                <Schedule>멋사 프로젝트</Schedule>
+                <Schedule>{formName}</Schedule>
                 <Days>{getDateFormat(startDate)} ~ {getDateFormat(endDate)}</Days>
                 <FixBtn>일정 확정하기</FixBtn>
                 <LinkCopyBtn>링크 공유</LinkCopyBtn>

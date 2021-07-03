@@ -45,9 +45,9 @@ export default ({ myCalendar, handleClick }) => {
 
                                     ) : (
                                         <>
-                                            {date.click === 0 && <Btn >  {date.date.getDate()}</Btn>}
-                                            {date.click === 2 && <Btn>  {date.date.getDate()}</Btn>}
-                                            {date.click === 1 && <Btn >  {date.date.getDate()}</Btn>}
+                                            {date.click === 0 && <Btn style={{ borderBottom: '4px solid #008000' }}>  {date.date.getDate()}</Btn>}
+                                            {date.click === 2 && <Btn style={{ borderBottom: '4px solid #EA2027' }}>  {date.date.getDate()}</Btn>}
+                                            {date.click === 1 && <Btn style={{ borderBottom: '4px solid #FFC312' }}>  {date.date.getDate()}</Btn>}
                                         </>
                                     )
                                 }
