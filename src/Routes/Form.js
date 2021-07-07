@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import styled from "styled-components";
+import { ko } from 'react-date-range/dist/locale';
 
-<<<<<<< HEAD
 import { DateRange } from 'react-date-range';
 import './Form.css'
 import useInput from '../Hooks/useInput';
@@ -26,7 +27,6 @@ const Quit = styled.div`
     border-radius: 0.2rem;
     box-shadow: 1px 2px 5px #bfbfbf;
     cursor: pointer;
-
 `;
 
 const Make = styled.div`
@@ -86,13 +86,5 @@ export default ({ }) => {
             </Buttons>
 
         </Container>
-=======
-export default ({})=>{
-
-    return (
-        <div>
-            form
-        </div>
->>>>>>> 2b9304b8cae19f372913f27328445eb5badcd743
     )
 }

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import styled from "styled-components";
+import useInput from "../Hooks/useInput";
+import { Link } from "react-router-dom";
 
-<<<<<<< HEAD
 import { toast } from "react-toastify";
 
 import auth from "../Styles/Images/Auth.jpg"
@@ -19,17 +21,14 @@ const Container = styled.div`
 const Image = styled.img`
     height: 85%;
     width: 60%;
-
 `;
 
 const AuthContainer = styled.div`
     width: 35%;
     margin-left:5%;
-
 `;
 
 const Title = styled.div`
-
 `;
 
 const Input = styled.input`
@@ -42,7 +41,6 @@ const Input = styled.input`
 `;
 
 const Content = styled.div`
-
 `;
 
 const Text = styled.div`
@@ -131,13 +129,5 @@ export default ({}) => {
                 </AuthContainer>
 
         </Container>
-=======
-export default ({})=>{
-
-    return (
-        <div>
-            Auth
-        </div>
->>>>>>> 2b9304b8cae19f372913f27328445eb5badcd743
     )
 }

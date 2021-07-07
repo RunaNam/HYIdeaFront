@@ -25,15 +25,12 @@ display: flex;
 `;
 
 const Text = styled.div`
-
 `;
 
 const Number = styled.div`
-
 `;
 
 const Des = styled.div`
-
 `;
 
 
@@ -58,7 +55,6 @@ const Cal = styled.div`
 `;
 
 const TestDay = styled.div`
-
 `;
 const Info = styled.div`
     width: 50%;
@@ -90,7 +86,6 @@ const Btn = styled.div`
     line-height: 4rem;
     font-size: 1.5rem;
     margin: 20px auto;
-
 `;
 
 const SubmitBtn = styled.div`

@@ -11,7 +11,6 @@ const Container = styled.div`
     height: 53rem;
     padding:0 20%;
     box-sizing: border-box;
-
 `;
 
 const Content = styled.div`
