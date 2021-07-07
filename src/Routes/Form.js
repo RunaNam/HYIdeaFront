@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import styled from "styled-components";
-import { ko } from 'react-date-range/dist/locale';
+import React from 'react';
 
+<<<<<<< HEAD
 import { DateRange } from 'react-date-range';
 import './Form.css'
 import useInput from '../Hooks/useInput';
@@ -87,5 +86,13 @@ export default ({ }) => {
             </Buttons>
 
         </Container>
+=======
+export default ({})=>{
+
+    return (
+        <div>
+            form
+        </div>
+>>>>>>> 2b9304b8cae19f372913f27328445eb5badcd743
     )
 }

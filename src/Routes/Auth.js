@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import styled from "styled-components";
-import useInput from "../Hooks/useInput";
-import { Link } from "react-router-dom";
+import React from 'react';
 
+<<<<<<< HEAD
 import { toast } from "react-toastify";
 
 import auth from "../Styles/Images/Auth.jpg"
@@ -133,5 +131,13 @@ export default ({}) => {
                 </AuthContainer>
 
         </Container>
+=======
+export default ({})=>{
+
+    return (
+        <div>
+            Auth
+        </div>
+>>>>>>> 2b9304b8cae19f372913f27328445eb5badcd743
     )
 }

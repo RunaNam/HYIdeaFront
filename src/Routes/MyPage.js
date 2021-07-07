@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useRef } from 'react';
 import Result from "./Result";
 import styled from "styled-components";
@@ -95,6 +96,29 @@ function MyPage() {
             </InfoContainer>
             <Result></Result>
         </Container>
+=======
+import React from 'react';
+import Result from "../Routes/Result/Result";
+
+const getDateFormat=date=>{
+    let reVal="";
+    reVal+=date.getFullYear()+'.'+date.getMonth()+'.'+date.getDate();
+    return reVal;
+}
+function MyPage(){
+    const startDate = new Date();
+    const endDate = new Date();
+    endDate.setDate(30);
+    return (
+        <div>
+            <span>
+            <div className="myPage">마이페이지</div>
+            <div className="scheduleName">멋사 프로젝트</div>
+            </span>
+            <div className="rangeOfDays">{getDateFormat(startDate)} ~ {getDateFormat(endDate)}</div>
+            <Result></Result>
+        </div>
+>>>>>>> 2b9304b8cae19f372913f27328445eb5badcd743
     )
 };
 

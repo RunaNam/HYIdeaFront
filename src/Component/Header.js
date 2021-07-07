@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import styled from "styled-components";
+=======
+import React, {useState} from "react";
+>>>>>>> 2b9304b8cae19f372913f27328445eb5badcd743
 
-import Popup from "reactjs-popup";
-import Auth from "../Routes/Auth";
 
+<<<<<<< HEAD
 import { toast } from "react-toastify";
 
 
@@ -70,8 +73,12 @@ export default () => {
         window.location.replace("/")
     }
     console.log(isLogin)
+=======
+>>>>>>> 2b9304b8cae19f372913f27328445eb5badcd743
 
+export default ()=>{
     return (
+<<<<<<< HEAD
         <Container>
             <Logo href ="/">
                 <T1>When</T1>
@@ -106,4 +113,10 @@ export default () => {
 
         </Container>
     );
+=======
+        <div>
+            header
+        </div>
+    )
+>>>>>>> 2b9304b8cae19f372913f27328445eb5badcd743
 }
